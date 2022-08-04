@@ -3,6 +3,21 @@
 
 -- 此项目用于猜测你的项目之前使用了什么包管理器.
 
+命令行方式:
+``` sh
+# 安装
+npm i -g whatnpm
+
+# 使用
+whatnpm
+``` 
+
+require 方式:
+``` js
+const { manager } = require(`whatnpm`)
+console.log(`manager`, manager().er) // yarn
+```
+
 ## 为什么开发此项目
 众所周知道 node 包管理器有很多, 例如: npm cnpm pnpm yarn yarn2, tyarn...
 
@@ -13,45 +28,20 @@
 所以这时候混合使用就可能出现问题.
 
 
-## 如何锁定包管理器
-- package.packageManager
-
-### 相似项目
-- [ni](https://www.npmjs.com/package/@antfu/ni) 期望统一包管理器的命令行参数, 通过 `*.lock` 文件或者 package.packageManager 来猜测应该调用什么包管理器.
-- [only-allow](https://github.com/pnpm/only-allow) 强制在项目中使用特定的包管理器.
-- https://www.npmjs.com/package/which-pm-runs
-- https://github.com/zkochan/packages/tree/main/preferred-pm
-
-
 ## 如何实现
 检测每个包管理器安装后的一些特征, 例如:
-- lockfile
-- package.packageManager
-- node_modules 
+- 依赖锁文件
+  - 文件名
+  - [ ] 创建时间
+- package.json 中的 packageManager 字段
+- node_modules 中的文件
+- 是否已安装
+- [ ] 使用频率
 
 
-- package.json
-  ``` json
-  {
-    "dependencies": {
-      "which-pm-runs": "^1.1.0"
-    }
-  }
-  ```
-- `yarn` v1.22.19
-  - lockfile
-    - yarn.lock
-      - `yarn lockfile v1`
-  - node_modules
-    - .yarn-integrity
-- `npm i` v8.15.1
-  - lockfile
-    - package-lock.json
-      - `"lockfileVersion": 2`
-  - node_modules
-    - .package-lock.json
-- `cnpm i` v7.1.0
-  - lockfile
-    - .package_versions.json
-  - node_modules
-    - .package-lock.json
+### 相似项目
+- [@antfu/ni](https://www.npmjs.com/package/@antfu/ni) 期望统一包管理器的命令行参数
+- [only-allow](https://github.com/pnpm/only-allow) 强制在项目中使用特定的包管理器
+- [which-pm-runs](https://www.npmjs.com/package/which-pm-runs) 在安装阶段的时候检测包管理器
+- [preferred-pm](https://github.com/zkochan/packages/tree/main/preferred-pm) 分析 lock 文件猜测包管理器
+

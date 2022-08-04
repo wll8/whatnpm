@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "是什么 node 包管理器?",
   "main": "index.js",
+  "bin": {
+    "whatnpm": "index.js"
+  },
   "scripts": {
     "npm": "npx shx rm -rf *-lock.json *.lock node_modules && npm i",
     "yarn": "npx shx rm -rf *-lock.json *.lock node_modules && yarn",
@@ -13,7 +16,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "packageManager": "^yarn@1.22.19",
+  "devDependencies": {
     "which-pm-runs": "^1.1.0"
+  },
+  "dependencies": {
+    "lodash.sortby": "^4.7.0"
   }
 }
