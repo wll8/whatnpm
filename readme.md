@@ -19,7 +19,7 @@ console.log(`manager`, manager().er) // yarn
 ```
 
 ## 为什么开发此项目
-众所周知道 node 包管理器有很多, 例如: npm cnpm pnpm yarn yarn2, tyarn...
+众所周知道 node 包管理器有很多, 例如: npm cnpm pnpm yarn yarn2 tyarn...
 
 大部分的情况下, 他们都可以混合使用. 这是由于 nodejs 的 require 有很强的兼容性.
 

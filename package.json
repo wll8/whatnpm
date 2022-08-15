@@ -6,6 +6,11 @@
   "bin": {
     "whatnpm": "index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wll8/whatnpm.git"
+  },
+  "homepage": "https://github.com/wll8/whatnpm",
   "scripts": {
     "npm": "npx shx rm -rf *-lock.json *.lock node_modules && npm i",
     "yarn": "npx shx rm -rf *-lock.json *.lock node_modules && yarn",
@@ -13,7 +18,14 @@
     "pnpm": "npx shx rm -rf *-lock.json *.lock node_modules && pnpm i",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "npm",
+    "cnpm",
+    "pnpm",
+    "yarn",
+    "yarn2",
+    "tyarn"
+  ],
   "author": "",
   "license": "ISC",
   "packageManager": "^yarn@1.22.19",
